@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MASTERMIND</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mastermind.css">
+</head>
+<body>
+
+  <header>
+    <h1>MASTERMIND</h1>
+    <div class="scoreboard">
+      <span class="score-label">victorias</span>
+      <span class="score-value" id="winCount">0</span>
+    </div>
+  </header>
+
+  <div class="attempt-track" id="attemptTrack"></div>
+  <div class="status-bar" id="statusBar">selecciona un color y colócalo</div>
+
+  <div class="game-wrap">
+
+    <!-- Tablero de intentos -->
+    <div class="board" id="board"></div>
+
+    <!-- Panel lateral -->
+    <div class="side-panel">
+
+      <div class="palette">
+        <div class="palette-title">Paleta de colores</div>
+        <div class="color-grid" id="colorGrid"></div>
+      </div>
+
+      <div class="controls">
+        <button class="action btn-confirm" id="btnConfirm" disabled>✓ Confirmar</button>
+        <button class="action btn-clear"   id="btnClear">⌫ Limpiar fila</button>
+        <button class="action btn-new"     id="btnNew">↺ Nueva partida</button>
+      </div>
+
+      <div class="legend">
+        <div class="legend-row">
+          <div class="legend-dot" style="background:#f0f0f0; border:1px solid #f0f0f0;"></div>
+          Color y posición correctos
+        </div>
+        <div class="legend-row">
+          <div class="legend-dot" style="background:transparent; border:2px solid #f0f0f0;"></div>
+          Color correcto, posición incorrecta
+        </div>
+        <div class="legend-row">
+          <div class="legend-dot" style="background:#1e1e2e; border:1px solid #3e3e5e;"></div>
+          Color no presente
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal fin de partida -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-msg"   id="modalMsg"></div>
+      <div class="secret-reveal" id="secretReveal"></div>
+      <button class="action btn-confirm" onclick="newGame()" style="width:100%;">↺ Jugar de nuevo</button>
+    </div>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio id="bgMusic" loop>
+    <source src="The_Third_Guess.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-btn" id="musicBtn" title="Música">♪</button>
+
+  <script src="mastermind.js"></script>
+</body>
+</html>
